@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './InputForm.css'
 
 const InputForm = ({ setMessage, fetchBookmarks }) => {
   const [value, setValue] = useState('');
@@ -35,7 +36,7 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
   };
 
   return (
-    <div>
+    <div className="input-form__container">
       <form onSubmit={handleSubmit} >
         <input 
           type="text"

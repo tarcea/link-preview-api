@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
-const Message = ({ message }) => {
-  const [showMessage, setShowMessage] = useState(false);
-
+const Message = ({ message, setMessage }) => {
+  
   useEffect(() => {
     const delay = setTimeout(() => {
-      setShowMessage(true)
-    }, 1000);
+      setMessage('')
+    }, 3000);
     return () => {
       clearTimeout(delay)
     }
-  }, []); 
+  }, [setMessage]); 
 
 console.log(message)
   return (
     <div>
-      {showMessage && (<p>{message}</p>)}
+      {<p>{message}</p>}
     </div>
   )
 }

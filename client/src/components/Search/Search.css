@@ -1,0 +1,10 @@
+.search__container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search__input-field {
+  max-width: 400px;
+}

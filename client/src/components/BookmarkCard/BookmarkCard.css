@@ -1,7 +1,20 @@
 .bookmark-card__container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2em;
+  background: white;
+  max-width: 20em;
+  box-shadow: 1px 1px 1px 1px #edeff1;
+  transition: 0.3s;
+  border-radius: 2px;
+  width: 100%;
+}
 
+.bookmark-card:hover {
+  box-shadow: 0 8px 16px 0 #898d94;
 }
 
 .bookmark-card__image {
   max-width: 300px;
 }
+

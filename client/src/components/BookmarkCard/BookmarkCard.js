@@ -1,17 +1,12 @@
 import React from 'react';
 import './BookmarkCard.css';
 
-const BookmarkCard = ({ bookmark, setMessage, deleteBookmark, index }) => {
+const BookmarkCard = ({ bookmark, deleteBookmark, index }) => {
   const { title, description, image, url, id } = bookmark;
 
-  // const deleteBookmark = () => {
-  //   setMessage('bookmark deleted')
-  //   axios.delete(`/api/bookmarks/${id}`);
-  //   console.log(id, 'deleted')
-  // };
-
   return (
-    <div className="bookmark-card__container">
+    bookmark 
+    ?  (<div className="bookmark-card__container">
       <h1>{title}</h1>
       <p>{description}</p>
       <img 
@@ -20,7 +15,8 @@ const BookmarkCard = ({ bookmark, setMessage, deleteBookmark, index }) => {
         alt={title}/>
       <p>{url}</p>
       <h1 onClick={() => deleteBookmark(id)}>delete</h1>
-    </div>
+    </div>)
+    : <div>Loading ...</div>
   )
 }
 

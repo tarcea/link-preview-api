@@ -1,0 +1,12 @@
+.bookmark-list__container {
+  background: #f8f9fa;
+  padding: 1.5em;
+  min-height: 100%; /*for IE11*/
+}
+
+.bookmark-list--flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #f8f9fa;
+}
