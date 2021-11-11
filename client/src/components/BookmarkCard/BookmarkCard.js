@@ -7,14 +7,14 @@ const BookmarkCard = ({ bookmark, deleteBookmark, index }) => {
   return (
     bookmark 
     ?  (<div className="bookmark-card__container">
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <h3 className="bookmark-card__title">{title}</h3>
       <img 
         className="bookmark-card__image"
         src={image || `https://picsum.photos/300/200?random=${index}`} 
         alt={title}/>
-      <p>{url}</p>
-      <h1 onClick={() => deleteBookmark(id)}>delete</h1>
+        <p className="bookmark-card__description">{description}</p>
+        <p className="bookmark-card__url bookmark-card__url--disabled">{url}</p>
+        <p className="bookmark-card__delete" onClick={() => deleteBookmark(id)}>X</p>
     </div>)
     : <div>Loading ...</div>
   )

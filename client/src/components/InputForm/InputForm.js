@@ -38,7 +38,8 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
   return (
     <div className="input-form__container">
       <form onSubmit={handleSubmit} >
-        <input 
+        <input
+          placeholder="paste your URL here"
           type="text"
           value={value}
           name="url" 

@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react';
+import './Message.css';
 
 const Message = ({ message, setMessage }) => {
   
   useEffect(() => {
     const delay = setTimeout(() => {
       setMessage('')
-    }, 3000);
+    }, 1500);
     return () => {
       clearTimeout(delay)
     }
@@ -13,7 +14,7 @@ const Message = ({ message, setMessage }) => {
 
 console.log(message)
   return (
-    <div>
+    <div className="message__container">
       {<p>{message}</p>}
     </div>
   )

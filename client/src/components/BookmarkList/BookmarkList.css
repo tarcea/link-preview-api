@@ -9,4 +9,5 @@
   flex-wrap: wrap;
   justify-content: center;
   background: #f8f9fa;
+  gap: 2em;
 }
