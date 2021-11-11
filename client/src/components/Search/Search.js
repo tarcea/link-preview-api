@@ -15,7 +15,7 @@ const Search = ({ bookmarks, setMessage, deleteBookmark }) => {
   },[bookmarks]);
     
   const dSearch = () => {
-    return data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    return data.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()))
   };
 
   return (

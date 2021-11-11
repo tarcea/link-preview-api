@@ -11,6 +11,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .bookmark-card:hover {
@@ -40,6 +41,7 @@
   justify-content: center;
   align-items: center;
   color: white;
+  cursor: pointer;
 }
 
 .bookmark-card__description {
@@ -58,9 +60,8 @@
   }
 
   .bookmark-card__container {
-    flex-direction: row;
-    max-width: 80vw;
-    gap: 1em;
+    /* flex-direction: row; */
+    /* max-width: 80vw; */
   }
 
   .bookmark-card__image {
