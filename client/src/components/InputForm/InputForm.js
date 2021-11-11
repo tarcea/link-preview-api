@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 
 const InputForm = ({ setMessage, fetchBookmarks }) => {
   const [value, setValue] = useState('');
+  const isUrlRegex = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gmi;
 
   const sendRequest = async () => {
     const url = '/api/bookmarks';
@@ -23,9 +24,13 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMessage('bookmark created');
-    await sendRequest();
-    await fetchBookmarks()
+    if (isUrlRegex.test(value)) {
+      await sendRequest();
+      await fetchBookmarks()
+      setMessage('');
+    } else {
+      setMessage('pleas provide a valid web address')
+    }
     setValue('');
   };
 

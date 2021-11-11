@@ -1,7 +1,7 @@
 import React from 'react';
-import axios from 'axios';
+import './BookmarkCard.css';
 
-const BookmarkCard = ({ bookmark, setMessage, deleteBookmark }) => {
+const BookmarkCard = ({ bookmark, setMessage, deleteBookmark, index }) => {
   const { title, description, image, url, id } = bookmark;
 
   // const deleteBookmark = () => {
@@ -11,10 +11,13 @@ const BookmarkCard = ({ bookmark, setMessage, deleteBookmark }) => {
   // };
 
   return (
-    <div>
+    <div className="bookmark-card__container">
       <h1>{title}</h1>
       <p>{description}</p>
-      <img src={image} alt={title}/>
+      <img 
+        className="bookmark-card__image"
+        src={image || `https://picsum.photos/300/200?random=${index}`} 
+        alt={title}/>
       <p>{url}</p>
       <h1 onClick={() => deleteBookmark(id)}>delete</h1>
     </div>
