@@ -77,13 +77,8 @@ app.post('/api/bookmarks', async (req, res, next) => {
   const dbData = await readDb();
   try {
     const { query } = req.body;
-    const result = await axios.post(
-      url,
-      {
-        q: query,
-        key: key
-      }
-    );
+    const postData = { q: query, key}
+    const result = await axios.post(url, postData);
     const data = {...result.data, id: Date.now()};
     const fullData = [...JSON.parse(dbData), data]
     fs.writeFileSync('./server/db/bookmarks.json', JSON.stringify(fullData))
