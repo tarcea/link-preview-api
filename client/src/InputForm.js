@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 
-const InputForm = ({ setMessage }) => {
+const InputForm = ({ setMessage, fetchBookmarks }) => {
   const [value, setValue] = useState('');
 
   const sendRequest = async () => {
@@ -21,10 +21,11 @@ const InputForm = ({ setMessage }) => {
     setValue(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage('bookmark created');
-    sendRequest();
+    await sendRequest();
+    await fetchBookmarks()
     setValue('');
   };
 

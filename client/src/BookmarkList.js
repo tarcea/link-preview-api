@@ -1,32 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import BookmarkCard from './BookmarkCard';
-import axios from 'axios';
 
-const BookmarkList = ({ setMessage }) => {
-  const [bookmarks, setBookmarks] = useState([]);
+const BookmarkList = ({ setMessage, bookmarks, deleteBookmark }) => {
+  
 
-  const fetchBookmarks = async () => {
-    try {
-      const result = await axios.get('/api/bookmarks/');
-      setBookmarks(result.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-  useEffect(() => {
-    fetchBookmarks();
-  },[]);
-
-  const deleteBookmark = async (id) => {
-    setMessage('bookmark deleted')
-    await axios.delete(`/api/bookmarks/${id}`);
-    await fetchBookmarks();
-    console.log(id, 'deleted')
-  };
-
-
-console.log('martor')
   return (
     <div>
       {bookmarks && bookmarks.map(bookmark => (
