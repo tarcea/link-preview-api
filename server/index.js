@@ -8,17 +8,17 @@ dotenv.config();
 const key = process.env.LINK_PREWIEW_KEY;
 const url = 'https://api.linkpreview.net';
 
-// const readFile = promisify(fs.readFile);
-// let dbData = '[]';
+const readFile = promisify(fs.readFile);
 
-// const readDb = async () => {
-//   dbData = await readFile('./server/db/bookmarks.json', 'utf8');
-// };
+const readDb = async () => {
+  const result = await readFile('./server/db/bookmarks.json', 'utf8');
+  return result;
+};
 // readDb().then(() => console.log(dbData))
 
 
-const dbData = fs.readFileSync('./server/db/bookmarks.json', 'utf8');
-const bookmarks = JSON.parse(dbData).reverse();
+// const dbData = fs.readFileSync('./server/db/bookmarks.json', 'utf8');
+// const bookmarks = JSON.parse(dbData).reverse();
 
 const app = express();
 app.use(express.urlencoded({ extended: false }));
@@ -34,6 +34,8 @@ app.use(function(req, res, next) {
 
 const getBookmark = async (req, res, next) => {
   let bookmark;
+  const dbData = await readDb();
+  const bookmarks = JSON.parse(dbData).reverse();
   try {
     const bookmark = await bookmarks.find(b => b.id === Number(req.params.id));
     if (bookmark === undefined) {
@@ -48,7 +50,9 @@ const getBookmark = async (req, res, next) => {
   next();
 };
 
-app.get('/api/bookmarks', (req, res) => {
+app.get('/api/bookmarks', async (req, res) => {
+  const dbData = await readDb();
+  const bookmarks = JSON.parse(dbData).reverse();
     res.json(bookmarks)
 });
 
@@ -63,6 +67,7 @@ app.get('/api/bookmarks/:id', getBookmark, async (req, res, next) => {
 });
 
 app.post('/api/bookmarks', async (req, res) => {
+  const dbData = await readDb();
   try {
     const { query } = req.body;
     const result = await axios.post(
@@ -82,6 +87,8 @@ app.post('/api/bookmarks', async (req, res) => {
 });
 
 app.delete('/api/bookmarks/:id', getBookmark, async (req, res, next) => {
+  const dbData = await readDb();
+  const bookmarks = JSON.parse(dbData).reverse();
   try {
     const { id } = req.params;
     const result = await bookmarks.filter(p => p.id !== Number(id));

@@ -1,14 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-const BookmarkCard = ({ bookmark, setMessage }) => {
+const BookmarkCard = ({ bookmark, setMessage, deleteBookmark }) => {
   const { title, description, image, url, id } = bookmark;
 
-  const deleteBookmark = () => {
-    setMessage('bookmark deleted')
-    axios.delete(`/api/bookmarks/${id}`);
-    console.log(id, 'deleted')
-  };
+  // const deleteBookmark = () => {
+  //   setMessage('bookmark deleted')
+  //   axios.delete(`/api/bookmarks/${id}`);
+  //   console.log(id, 'deleted')
+  // };
 
   return (
     <div>

@@ -18,11 +18,19 @@ const BookmarkList = ({ setMessage }) => {
     fetchBookmarks();
   },[]);
 
+  const deleteBookmark = async (id) => {
+    setMessage('bookmark deleted')
+    await axios.delete(`/api/bookmarks/${id}`);
+    await fetchBookmarks();
+    console.log(id, 'deleted')
+  };
+
+
 console.log('martor')
   return (
     <div>
       {bookmarks && bookmarks.map(bookmark => (
-        <BookmarkCard bookmark={bookmark} key={bookmark.id} setMessage={setMessage} />
+        <BookmarkCard bookmark={bookmark} key={bookmark.id} setMessage={setMessage} deleteBookmark={deleteBookmark} />
       ))}
     </div>
   )
