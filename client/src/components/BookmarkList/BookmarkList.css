@@ -1,13 +1,47 @@
 .bookmark-list__container {
   background: #f8f9fa;
-  padding: 1.5em;
-  min-height: 100%; /*for IE11*/
+  padding: 0.5em;
+  margin: 0 auto;
 }
 
 .bookmark-list--flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   background: #f8f9fa;
+  justify-content: center;
   gap: 1em;
+}
+
+.bookmark-list__counter {
+  background: rgb(255, 193, 7, 0.8);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex; /* or inline-flex */
+  align-items: center;
+  justify-content: center;
+  font: bold 15px/13px Helvetica, Verdana, Tahoma;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+@media screen and (min-width: 768px) {
+  .bookmark-list__container {
+    background: #f8f9fa;
+    padding: 2.5em;
+    max-width: 75%;
+    margin: 0 auto;
+  }
+
+  .bookmark-list--flex {
+    justify-content: flex-start;
+  }
+
+  .bookmark-list__counter {
+    right: 12%;
+    z-index: 2;
+  }
+
 }

@@ -7,4 +7,8 @@
 
 .search__input-field {
   max-width: 400px;
+  height: 2em;
+  width: 70%;
+  border: 1px solid rgb(52, 58, 64);
+  padding: 1em;
 }

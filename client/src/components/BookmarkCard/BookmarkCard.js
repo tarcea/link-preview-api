@@ -1,4 +1,6 @@
 import React from 'react';
+import { TiDeleteOutline } from 'react-icons/ti';
+
 import './BookmarkCard.css';
 
 const BookmarkCard = ({ bookmark, deleteBookmark, index }) => {
@@ -12,14 +14,13 @@ const stopPropagation = (e, id) => {
   return (
     bookmark 
     ?  (<div className="bookmark-card__container" onClick={() => window.open(url, "_blank")}>
-      <h3 className="bookmark-card__title">{title}</h3>
+      <h4 className="bookmark-card__title">{title}</h4>
       <img 
         className="bookmark-card__image"
         src={image || `https://picsum.photos/300/200?random=${index}`} 
         alt={title}/>
-        <p className="bookmark-card__description">{description}</p>
-        {/* <p className="bookmark-card__url bookmark-card__url--disabled">{url}</p> */}
-        <p className="bookmark-card__delete" onClick={(e) => stopPropagation(e, id)}>X</p>
+        <p className="bookmark-card__description bookmark-card__description--disabled">{description}</p>
+        <h2 className="bookmark-card__delete" onClick={(e) => stopPropagation(e, id)}><TiDeleteOutline /></h2>
     </div>)
     : <div>Loading ...</div>
   )
