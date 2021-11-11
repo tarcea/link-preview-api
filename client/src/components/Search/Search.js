@@ -4,11 +4,10 @@ import './Search.css';
 
 const Search = ({ bookmarks, setMessage, deleteBookmark }) => {
   const [data, setData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState('');
   
   const editSearchTerm = (e) => {
-      setSearchTerm(e.target.value)
-      //console.log(searchTerm)
+      setSearchTerm(e.target.value);
   };
 
   useEffect(() => {

@@ -45,7 +45,7 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
           name="url" 
           required 
           onChange={handleChange} />
-          <input type="submit" />
+          <input type="submit" value="add it"/>
       </form>
     </div>
   )

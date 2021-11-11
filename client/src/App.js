@@ -36,7 +36,8 @@ const  App = () => {
       <InputForm 
         setMessage={setMessage} 
         fetchBookmarks={fetchBookmarks} />
-      {message !== '' && (<Message 
+      {message !== '' && (
+      <Message 
         message={message} 
         setMessage={setMessage} />)}
       <Search 

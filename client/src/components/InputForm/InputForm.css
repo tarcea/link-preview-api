@@ -1,5 +1,27 @@
 .input-form__container {
   display: flex;
   justify-content: center;
+  padding: 2em;
+}
 
+.input-form__container input[type="text"] {
+  height: 2em;
+  width: 70%;
+}
+
+.input-form__container input[type="submit"] {
+  height: 2em;
+  width: 30%;
+}
+
+@media screen and (min-width: 768px) {
+  .input-form__container input[type="text"] {
+    height: 2em;
+    width: 70%;
+  }
+  
+  .input-form__container input[type="submit"] {
+    height: 2em;
+    width: 30%;
+  }
 }
