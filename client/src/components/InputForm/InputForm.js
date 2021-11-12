@@ -15,7 +15,10 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
     try {
       await axios.post(url, data, headers)
     } catch (err) {
-      console.log(err)
+      if (err.message === 'Request failed with status code 500') {
+        setMessage('the requested URL does not allow fetching info')
+      }
+      console.log(err.message)
     }
   };
 
@@ -28,7 +31,7 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
     if (isUrlRegex.test(value)) {
       await sendRequest();
       await fetchBookmarks()
-      setMessage('');
+      // setMessage('');
     } else {
       setMessage('pleas provide a valid web address')
     }

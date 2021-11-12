@@ -8,8 +8,14 @@
 .search__input-field {
   outline: none;
   max-width: 400px;
-  height: 2em;
+  height: 2.2em;
   width: 70%;
   border: 1px solid rgb(52, 58, 64);
   padding: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .search__input-field {
+    height: 3em;
+  }
 }

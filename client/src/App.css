@@ -7,3 +7,7 @@
   padding: 0.8em;
   text-align: center;
 }
+
+.container__header h1{
+  /* background: rgb(255, 193, 7, 0.8); */
+}

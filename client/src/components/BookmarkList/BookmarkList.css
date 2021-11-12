@@ -15,17 +15,21 @@
 
 .bookmark-list__counter {
   background: rgb(255, 193, 7, 0.8);
-  width: 40px;
-  height: 40px;
+  width: 2em;
+  height: 2em;
   border-radius: 50%;
   display: flex; /* or inline-flex */
   align-items: center;
   justify-content: center;
-  font: bold 15px/13px Helvetica, Verdana, Tahoma;
+  font: bold 1.5em/1.5em Helvetica, Verdana, Tahoma;
   position: fixed;
   bottom: 1rem;
   right: 1rem;
   z-index: 2;
+}
+
+.bookmark-list__nothing {
+  padding: 2em;
 }
 
 @media screen and (min-width: 768px) {
