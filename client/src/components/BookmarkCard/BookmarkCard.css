@@ -4,7 +4,7 @@
   margin-bottom: 1.2em;
   background: white;
   max-width: 20em;
-  box-shadow: 1px 1px 1px 1px #edeff1;
+  box-shadow: 1px 5px 6px 1px #999a9b;
   transition: 0.3s;
   border-radius: 2px;
   width: 100%;
@@ -60,8 +60,7 @@
   }
 
   .bookmark-card__container {
-    /* flex-direction: row; */
-    /* max-width: 80vw; */
+  
   }
 
   .bookmark-card__image {
