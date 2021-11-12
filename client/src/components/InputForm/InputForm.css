@@ -3,18 +3,31 @@
 }
 
 .input-form__container input[type="text"] {
-  height: 2em;
+  outline: none;
+  height: 2.2em;
   width: 70%;
   border: 1px solid rgb(52, 58, 64);
+  border-right: none;
   padding: 1em;
 }
 
-.input-form__container input[type="submit"] {
+.input-form__button--dark {
   height: 2.2em;
   width: 30%;
   border: none;
   background: rgb(52, 58, 64);
   color: rgb(255, 193, 7)
+}
+
+.input-form__button--empty {
+  height: 2.2em;
+  width: 30%;
+  border: none;
+  border: 1px solid rgb(52, 58, 64);
+  border-left: none;
+  background: transparent;
+  color: transparent;
+
 }
 
 @media screen and (min-width: 768px) {
@@ -28,7 +41,7 @@
     width: 70%;
   }
   
-  .input-form__container input[type="submit"] {
+  .input-form__button--dark {
     width: 20%;
   }
 }

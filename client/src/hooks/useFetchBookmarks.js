@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
   
-const  useFetchBookmarks = () => {
+const  useFetchBookmarks = (url) => {
   const [bookmarks, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const url = '/api/bookmarks/';
+//   const url = '/api/bookmarks/';
 
   useEffect(() => {
     const fetchData = async () => {

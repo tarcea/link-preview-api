@@ -6,6 +6,7 @@
 }
 
 .search__input-field {
+  outline: none;
   max-width: 400px;
   height: 2em;
   width: 70%;

@@ -19,7 +19,8 @@ const Search = ({ bookmarks, setMessage, deleteBookmark }) => {
   };
 
   return (
-    <div  className="search__container">
+   bookmarks.length 
+    && (<div  className="search__container">
         <input type="text"
           className="search__input-field"
           value={searchTerm}
@@ -30,7 +31,7 @@ const Search = ({ bookmarks, setMessage, deleteBookmark }) => {
           setMessage={setMessage}
           deleteBookmark={deleteBookmark}
           bookmarks={dSearch()}/>
-    </div>
+    </div>)
   );
 };
 

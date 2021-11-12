@@ -45,7 +45,7 @@ const InputForm = ({ setMessage, fetchBookmarks }) => {
           name="url" 
           required 
           onChange={handleChange} />
-          <input type="submit" value="add it"/>
+          <input type="submit" value="add !t" className={value === '' ? 'input-form__button--empty' : 'input-form__button--dark'} />
       </form>
     </div>
   )

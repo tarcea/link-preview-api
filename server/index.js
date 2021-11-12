@@ -58,6 +58,21 @@ const getBookmark = async (req, res, next) => {
   next();
 };
 
+const getBookmarksBySearch = async (req, res, next) => {
+  let searchResult;
+  const dbData = await readDb();
+  const bookmarks = JSON.parse(dbData).reverse();
+  try {
+    const { searchTerm } = req.body;
+    searchResult = await bookmarks.filter(item => item.title.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+    next(err);
+  }
+  res.locals.searchResult = searchResult;
+  next();
+};
+
 app.get('/api/bookmarks', getBookmarks, async (req, res) => {
   const bookmarks = await res.locals.bookmarks;
     res.json(bookmarks)
@@ -84,6 +99,16 @@ app.post('/api/bookmarks', async (req, res, next) => {
     fs.writeFileSync('./server/db/bookmarks.json', JSON.stringify(fullData))
     res.json(data)
   } catch (err) {
+    console.log(err.message);
+    next(err);
+  }
+});
+
+app.post('/api/bookmarks/search', getBookmarksBySearch, async (req, res, next) => {
+  try {
+    const searchResult = await res.locals.searchResult;
+    res.status(200).json(searchResult);
+  } catch (err){
     console.log(err.message);
     next(err);
   }
