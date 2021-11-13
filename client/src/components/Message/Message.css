@@ -1,5 +1,5 @@
 .message__container {
-  width: 70%;
+  width: 90vw;
   background: rgba(245, 178, 178, 0.9);
   padding: 1em;
   text-align: center;
@@ -14,4 +14,8 @@
   left: 0;
   right: 0;
   z-index: 1;
+}
+
+@media screen and (min-width: 768px) {
+  width: 50vw;
 }

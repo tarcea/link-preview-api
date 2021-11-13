@@ -45,16 +45,16 @@ const getBookmark = async (req, res, next) => {
   const dbData = await readDb();
   const bookmarks = JSON.parse(dbData).reverse();
   try {
-    const bookmark = await bookmarks.find(b => b.id === Number(req.params.id));
+    const bookmark = await bookmarks.find(b => Number(b.id) === Number(req.params.id));
     if (bookmark === undefined) {
       res.status(404).json({ message: 'Cannot find bookmark' });
       return;
     }
+    res.locals.bookmark = bookmark;
   } catch (err) {
     res.status(500).json({ message: err.message });
     next(err);
   }
-  res.locals.bookmark = bookmark;
   next();
 };
 
@@ -81,6 +81,7 @@ app.get('/api/bookmarks', getBookmarks, async (req, res) => {
 app.get('/api/bookmarks/:id', getBookmark, async (req, res, next) => {
   try {
     const bookmark = await res.locals.bookmark;
+    console.log(bookmark)
     res.status(200).json(bookmark);
   } catch (err){
     console.log(err.message);
